@@ -36,6 +36,7 @@ func main() {
 
 	var results []struct {
 		Title string
+		Date  string
 		Desc  string
 	}
 
@@ -45,14 +46,17 @@ func main() {
 		for item := updates.FirstChild; item != nil; item = item.NextSibling {
 			if item.Type == html.ElementNode && item.Data == "li" {
 				titleNode := getSubItemContentWithClass(item, "parcel-status-items__list-item-title")
+				dateNode := getSubItemContentWithClass(item, "parcel-status-items__list-item-date")
 				descNode := getSubItemContentWithClass(item, "parcel-status-items__list-item-description")
 
 				if titleNode != "" && descNode != "" {
 					results = append(results, struct {
 						Title string
+						Date  string
 						Desc  string
 					}{
 						Title: titleNode,
+						Date:  dateNode,
 						Desc:  descNode,
 					})
 				}
@@ -69,6 +73,7 @@ func main() {
 		fmt.Println()
 		for _, r := range results {
 			fmt.Printf("Status: %s\n", r.Title)
+			fmt.Printf("Date: %s\n", r.Date)
 			fmt.Printf("Description: %s\n", r.Desc)
 			fmt.Println("-----------------------------")
 		}
