@@ -8,7 +8,7 @@ Small Foxpost tracking CLI. Wanted something more, but for me this will be enogu
 
 Without building it, just call:
 ```
-go run main.go <package number>
+go run cmd/foxpost/main.go <package number>
 ```
 
 Example output:
