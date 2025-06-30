@@ -25,6 +25,8 @@ func main() {
 		return
 	}
 
+	fmt.Println("Found", len(status), "updates, results:")
+	fmt.Println()
 	for _, update := range status {
 		fmt.Printf("Status: %s\n", update.Title)
 		fmt.Printf("Date: %s\n", update.Date)
